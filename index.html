@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #1a1b26; /* A nice dark theme background */
+        }
+        .code-keyword { color: #bb9af7; } /* Keywords: fun, val, import, data, class */
+        .code-function { color: #7aa2f7; } /* Function names */
+        .code-string { color: #9ece6a; } /* Strings */
+        .code-number { color: #ff9e64; } /* Numbers */
+        .code-comment { color: #5c6370; font-style: italic; } /* Comments */
+        .code-package { color: #e0af68; } /* Package/import paths */
+        .code-type { color: #2ac3de; } /* Types like Person, BirthdayWish, Int */
+        .code-punctuation { color: #c0caf5; } /* Braces, dots, etc */
+        .code-property { color: #ffc777; } /* Property names */
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-[#1e1e2e]">
+
+    <!-- Card Container - Removed max-w-lg and w-full to allow it to size to content -->
+    <div class="bg-[#282a36] shadow-2xl rounded-2xl mx-4 transform transition-all hover:scale-105 duration-300">
+        <!-- Card Header -->
+        <div class="flex items-center p-4 bg-gray-900/50 rounded-t-2xl border-b border-gray-700">
+            <div class="flex space-x-2">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+            </div>
+            <div class="flex-grow text-center text-gray-400 text-sm">
+                GuceksBirthday.kt
+            </div>
+        </div>
+
+        <!-- Code Area -->
+        <div class="p-6 sm:p-8">
+            <pre><code class="text-sm sm:text-base leading-relaxed">
+<span class="code-keyword">package</span> <span class="code-package">com.universe.greetings</span>
+
+<span class="code-keyword">data class</span> <span class="code-type">Person</span><span class="code-punctuation">(</span><span class="code-keyword">val</span> name<span class="code-punctuation">:</span> <span class="code-type">String</span><span class="code-punctuation">,</span> <span class="code-keyword">val</span> age<span class="code-punctuation">:</span> <span class="code-type">Int</span><span class="code-punctuation">)</span>
+
+<span class="code-keyword">class</span> <span class="code-type">BirthdayWish</span><span class="code-punctuation">(</span><span class="code-keyword">private val</span> forPerson<span class="code-punctuation">:</span> <span class="code-type">Person</span><span class="code-punctuation">) {</span>
+    <span class="code-keyword">private val</span> messages <span class="code-punctuation">=</span> <span class="code-function">mutableListOf</span><span class="code-punctuation">&lt;</span><span class="code-type">String</span><span class="code-punctuation">&gt;()</span>
+    <span class="code-keyword">private var</span> projectedLongevity <span class="code-punctuation">=</span> <span class="code-number">100</span>
+
+    <span class="code-keyword">fun</span> <span class="code-function">wishAge</span><span class="code-punctuation">(</span>age<span class="code-punctuation">:</span> <span class="code-type">Int</span><span class="code-punctuation">)</span> <span class="code-punctuation">=</span> <span class="code-keyword">apply</span> <span class="code-punctuation">{</span> projectedLongevity <span class="code-punctuation">=</span> age <span class="code-punctuation">}</span>
+    <span class="code-keyword">fun</span> <span class="code-function">addLine</span><span class="code-punctuation">(</span>message<span class="code-punctuation">:</span> <span class="code-type">String</span><span class="code-punctuation">)</span> <span class="code-punctuation">=</span> <span class="code-keyword">apply</span> <span class="code-punctuation">{</span> messages<span class="code-punctuation">.</span><span class="code-function">add</span><span class="code-punctuation">(</span>message<span class="code-punctuation">) }</span>
+
+    <span class="code-keyword">fun</span> <span class="code-function">deliver</span><span class="code-punctuation">() {</span>
+        <span class="code-function">println</span><span class="code-punctuation">(</span><span class="code-string">"To: ${forPerson.name} (Level: ${forPerson.age})"</span><span class="code-punctuation">)</span>
+        <span class="code-function">println</span><span class="code-punctuation">(</span><span class="code-string">"Subject: Happy Birthday! Patch Notes:"</span><span class="code-punctuation">)</span>
+        <span class="code-function">println</span><span class="code-punctuation">(</span><span class="code-string">"--------------------------------------"</span><span class="code-punctuation">)</span>
+        <span class="code-function">println</span><span class="code-punctuation">(</span><span class="code-string">"  + Wishing you at least $projectedLongevity years of uptime."</span><span class="code-punctuation">)</span>
+        messages<span class="code-punctuation">.</span><span class="code-function">forEach</span> <span class="code-punctuation">{</span> <span class="code-function">println</span><span class="code-punctuation">(</span><span class="code-string">"  + $it"</span><span class="code-punctuation">) }</span>
+    <span class="code-punctuation">}</span>
+<span class="code-punctuation">}</span>
+
+<span class="code-keyword">fun</span> <span class="code-function">main</span><span class="code-punctuation">() {</span>
+    <span class="code-keyword">val</span> birthdayPerson <span class="code-punctuation">=</span> <span class="code-type">Person</span><span class="code-punctuation">(</span>name <span class="code-punctuation">=</span> <span class="code-string">"Gucek"</span><span class="code-punctuation">,</span> age <span class="code-punctuation">=</span> <span class="code-number">30</span><span class="code-punctuation">)</span>
+
+    <span class="code-comment">// Building the wish object with method chaining</span>
+    <span class="code-keyword">val</span> wish <span class="code-punctuation">=</span> <span class="code-type">BirthdayWish</span><span class="code-punctuation">(</span>birthdayPerson<span class="code-punctuation">)</span>
+        <span class="code-punctuation">.</span><span class="code-function">wishAge</span><span class="code-punctuation">(</span><span class="code-number">120</span><span class="code-punctuation">)</span>
+        <span class="code-punctuation">.</span><span class="code-function">addLine</span><span class="code-punctuation">(</span><span class="code-string">"May your bugs be few."</span><span class="code-punctuation">)</span>
+        <span class="code-punctuation">.</span><span class="code-function">addLine</span><span class="code-punctuation">(</span><span class="code-string">"And your features be many."</span><span class="code-punctuation">)</span>
+
+    <span class="code-comment">// Delivering the fully constructed wish</span>
+    wish<span class="code-punctuation">.</span><span class="code-function">deliver</span><span class="code-punctuation">()</span>
+<span class="code-punctuation">}</span>
+            </code></pre>
+        </div>
+    </div>
+
+</body>
+</html>
