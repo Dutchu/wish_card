@@ -9,43 +9,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
+        /* Classic IntelliJ Darcula Theme */
         body {
             font-family: 'JetBrains Mono', monospace;
-            background-color: #1a1b26; /* A nice dark theme background */
+            background-color: #2B2B2B; /* Darcula background */
         }
-        .code-keyword { color: #bb9af7; } /* Keywords: fun, val, import, data, class */
-        .code-function { color: #7aa2f7; } /* Function names */
-        .code-string { color: #9ece6a; } /* Strings */
-        .code-number { color: #ff9e64; } /* Numbers */
-        .code-comment { color: #5c6370; font-style: italic; } /* Comments */
-        .code-package { color: #e0af68; } /* Package/import paths */
-        .code-type { color: #2ac3de; } /* Types like Person, BirthdayWish, Int */
-        .code-punctuation { color: #c0caf5; } /* Braces, dots, etc */
-        .code-property { color: #ffc777; } /* Property names */
+        .code-keyword { color: #cc7832; } /* Orange for keywords: fun, val, class */
+        .code-function { color: #ffc66d; } /* Yellow for function names */
+        .code-string { color: #6a8759; } /* Green for strings */
+        .code-number { color: #6897bb; } /* Blue for numbers */
+        .code-comment { color: #808080; font-style: italic; } /* Grey for comments */
+        .code-package { color: #bbb529; } /* Yellowish for package names */
+        .code-type { color: #a9b7c6; } /* Default text color for types */
+        .code-punctuation { color: #a9b7c6; } /* Default text color for punctuation */
+        .code-property { color: #9876aa; } /* Purple for properties/fields */
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-[#1e1e2e]">
+<body class="flex items-center justify-center min-h-screen bg-[#2B2B2B] p-4">
 
-    <!-- Card Container - Removed max-w-lg and w-full to allow it to size to content -->
-    <div class="bg-[#282a36] shadow-2xl rounded-2xl mx-4 transform transition-all hover:scale-105 duration-300">
+    <!-- Card Container -->
+    <div class="bg-[#3C3F41] shadow-2xl rounded-2xl w-full max-w-2xl transform transition-all hover:scale-105 duration-300">
         <!-- Card Header -->
-        <div class="flex items-center p-4 bg-gray-900/50 rounded-t-2xl border-b border-gray-700">
+        <div class="flex items-center p-3 sm:p-4 bg-[#313335] rounded-t-2xl border-b border-gray-700">
             <div class="flex space-x-2">
                 <div class="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div class="w-3 h-3 bg-green-500 rounded-full"></div>
             </div>
-            <div class="flex-grow text-center text-gray-400 text-sm">
+            <div class="flex-grow text-center text-gray-400 text-xs sm:text-sm">
                 GuceksBirthday.kt
             </div>
         </div>
 
         <!-- Code Area -->
-        <div class="p-6 sm:p-8">
-            <pre><code class="text-sm sm:text-base leading-relaxed">
+        <div class="p-4 sm:p-6">
+            <!-- Added overflow-x-auto to allow horizontal scrolling on small screens -->
+            <pre class="overflow-x-auto"><code class="text-xs sm:text-sm md:text-base leading-relaxed text-[#a9b7c6]">
 <span class="code-keyword">package</span> <span class="code-package">com.universe.greetings</span>
 
-<span class="code-keyword">data class</span> <span class="code-type">Person</span><span class="code-punctuation">(</span><span class="code-keyword">val</span> name<span class="code-punctuation">:</span> <span class="code-type">String</span><span class="code-punctuation">,</span> <span class="code-keyword">val</span> age<span class="code-punctuation">:</span> <span class="code-type">Int</span><span class="code-punctuation">)</span>
+<span class="code-keyword">data class</span> <span class="code-type">Person</span><span class="code-punctuation">(</span><span class="code-keyword">val</span> <span class="code-property">name</span><span class="code-punctuation">:</span> <span class="code-type">String</span><span class="code-punctuation">,</span> <span class="code-keyword">val</span> <span class="code-property">age</span><span class="code-punctuation">:</span> <span class="code-type">Int</span><span class="code-punctuation">)</span>
 
 <span class="code-keyword">class</span> <span class="code-type">BirthdayWish</span><span class="code-punctuation">(</span><span class="code-keyword">private val</span> forPerson<span class="code-punctuation">:</span> <span class="code-type">Person</span><span class="code-punctuation">) {</span>
     <span class="code-keyword">private val</span> messages <span class="code-punctuation">=</span> <span class="code-function">mutableListOf</span><span class="code-punctuation">&lt;</span><span class="code-type">String</span><span class="code-punctuation">&gt;()</span>
@@ -64,7 +66,7 @@
 <span class="code-punctuation">}</span>
 
 <span class="code-keyword">fun</span> <span class="code-function">main</span><span class="code-punctuation">() {</span>
-    <span class="code-keyword">val</span> birthdayPerson <span class="code-punctuation">=</span> <span class="code-type">Person</span><span class="code-punctuation">(</span>name <span class="code-punctuation">=</span> <span class="code-string">"Gucek"</span><span class="code-punctuation">,</span> age <span class="code-punctuation">=</span> <span class="code-number">30</span><span class="code-punctuation">)</span>
+    <span class="code-keyword">val</span> birthdayPerson <span class="code-punctuation">=</span> <span class="code-type">Person</span><span class="code-punctuation">(</span><span class="code-property">name</span> <span class="code-punctuation">=</span> <span class="code-string">"Gucek"</span><span class="code-punctuation">,</span> <span class="code-property">age</span> <span class="code-punctuation">=</span> <span class="code-number">30</span><span class="code-punctuation">)</span>
 
     <span class="code-comment">// Building the wish object with method chaining</span>
     <span class="code-keyword">val</span> wish <span class="code-punctuation">=</span> <span class="code-type">BirthdayWish</span><span class="code-punctuation">(</span>birthdayPerson<span class="code-punctuation">)</span>
